@@ -1,3 +1,4 @@
+class_name Mob
 extends CharacterBody2D
 
 @onready var _detection_area: Area2D = %DetectionArea
@@ -8,6 +9,8 @@ extends CharacterBody2D
 @export var acceleration: float = 700.0
 ## How much speed is lost per seconds when the player release all movement keys
 @export var deceleration: float = 700.0
+## Mob health level
+@export var health: int = 10 : set = set_health
 
 var _player: Player = null
 
@@ -35,3 +38,11 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 
 	move_and_slide()	
+
+func set_health(new_health: int) -> void:
+	health = new_health
+	if health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()
