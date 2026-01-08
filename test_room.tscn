@@ -9,5 +9,3 @@
 
 [node name="Player" parent="." instance=ExtResource("2_arrdh")]
 position = Vector2(424, 281)
-acceleration = 1500.0
-deceleration = 1800.0
