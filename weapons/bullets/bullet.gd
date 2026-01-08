@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	position += velocity * delta
 	
 	distance_traveled += speed * delta
-	
+
 	if distance_traveled > max_range:
 		_destroy()
 

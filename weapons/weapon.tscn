@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmcxoh45b2757"]
+
+[ext_resource type="Script" uid="uid://y3rq40olr6wn" path="res://weapon.gd" id="1_rma5x"]
+[ext_resource type="PackedScene" uid="uid://cs55p4on85fs5" path="res://weapons/bullets/bullet.tscn" id="2_pxh0k"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_rma5x")
+bullet_scene = ExtResource("2_pxh0k")
+bullet_range = 3000.0
+max_bullet_spread = 0.03490658503988659
