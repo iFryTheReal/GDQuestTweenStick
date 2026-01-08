@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://43ku0c7m8gqa"]
+[gd_scene load_steps=5 format=3 uid="uid://43ku0c7m8gqa"]
 
+[ext_resource type="Script" uid="uid://bml0yexgmjr54" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://5ays6kuo0xio" path="res://common/shadow.tscn" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://bw03btxpkxde4" path="res://player/godot_bottom.png" id="2_g1dw6"]
 
@@ -8,6 +9,7 @@ radius = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
+script = ExtResource("1_g1dw6")
 
 [node name="Shadow" parent="." instance=ExtResource("1_rkbax")]
 
