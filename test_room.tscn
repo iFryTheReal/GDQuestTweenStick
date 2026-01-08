@@ -13,3 +13,4 @@ position = Vector2(424, 281)
 
 [node name="Mob" parent="." instance=ExtResource("3_arrdh")]
 position = Vector2(1219, 1070)
+max_speed = 200.0
