@@ -14,10 +14,9 @@ const UP_LEFT = Vector2.UP + Vector2.LEFT
 func rotate_sprite(direction: Vector2) -> void:
 	var sprite_direction = direction.sign()
 	
-	if sprite_direction.x < 0.0:
-		flip_h = true
-	else:
-		flip_h = false
+	# Flip the sprite horizontaly to match it with movement on the left
+	# (there isn't left looking sprite provided, so we flip le right looking ones)
+	flip_h = sprite_direction.x < 0.0
 	
 	match sprite_direction:
 		Vector2.UP:
