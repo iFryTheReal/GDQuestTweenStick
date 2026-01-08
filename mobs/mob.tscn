@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0i2gypp2yyrp"]
+
+[ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_bteyy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bteyy"]
+radius = 18.0
+height = 132.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bteyy"]
+radius = 800.0
+
+[node name="Mob" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bteyy")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_bteyy")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_bteyy")
