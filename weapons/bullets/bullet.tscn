@@ -9,6 +9,8 @@ radius = 11.0
 height = 44.0
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 6
 script = ExtResource("1_d6jwi")
 
 [node name="Trail" type="Sprite2D" parent="."]

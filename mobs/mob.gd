@@ -44,5 +44,12 @@ func set_health(new_health: int) -> void:
 	if health <= 0:
 		die()
 
+func take_damage(damage: int) -> void:
+	health -= damage
+	
+	modulate = Color.RED
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
+
 func die() -> void:
 	queue_free()

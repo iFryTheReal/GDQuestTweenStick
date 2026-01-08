@@ -4,7 +4,18 @@ extends Area2D
 @export var speed: float = 1000.0
 ## Maximum travel distance of the bullet
 @export var max_range: float = 1500.0
+## Damage done by the bullet
+@export var damage: int = 2
+
 var distance_traveled: float = 0.0
+
+func _ready() -> void:
+	body_entered.connect(func (body: Node) -> void:
+		if body is Mob:
+			body = body as Mob
+			body.take_damage(damage)
+		_destroy()
+	)
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.RIGHT.rotated(rotation)
