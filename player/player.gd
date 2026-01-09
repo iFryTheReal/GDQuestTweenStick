@@ -2,7 +2,9 @@ class_name Player
 extends CharacterBody2D
 
 @onready var _sprite_2d: Sprite2D = %Sprite2D
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var _collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var _health_bar: Control = %HealthBar
+@onready var timer: Timer = %Timer
 
 ## Maximum speed allowed for the player character
 @export var max_speed: float = 600.0
@@ -16,7 +18,11 @@ extends CharacterBody2D
 var health: int = 0 : set = set_health
 
 func _ready() -> void:
+	_health_bar.max_health = max_health
 	health = max_health
+	
+	
+	timer.timeout.connect(take_damage.bind(1))
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -33,17 +39,18 @@ func _physics_process(delta: float) -> void:
 
 func set_health(new_health: int) -> void:
 	health = clampi(new_health, 0, max_health)
+	_health_bar.set_health(health)
 	if health == 0:
 		die()
 		
 func take_damage(damage: int) -> void:
 	health -= damage
 	
-	modulate = Color.RED
+	_sprite_2d.modulate = Color.RED
 	var tween: Tween = create_tween()
-	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
+	tween.tween_property(_sprite_2d, "modulate", Color.WHITE, 0.1)
 
 func die() -> void:
 	set_physics_process(false)
-	collision_shape_2d.set_deferred("disabled", true)
+	_collision_shape_2d.set_deferred("disabled", true)
 	queue_free()

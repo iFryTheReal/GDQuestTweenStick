@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://43ku0c7m8gqa"]
+[gd_scene load_steps=10 format=3 uid="uid://43ku0c7m8gqa"]
 
 [ext_resource type="Script" uid="uid://bml0yexgmjr54" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://5ays6kuo0xio" path="res://common/shadow.tscn" id="1_rkbax"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://djmlb8fcjgvng" path="res://player/weapon_pivot.gd" id="5_boad6"]
 [ext_resource type="PackedScene" uid="uid://cmcxoh45b2757" path="res://weapons/weapon.tscn" id="5_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://dekkcmj408pvt" path="res://player/hand_fire.png" id="6_boad6"]
+[ext_resource type="PackedScene" uid="uid://dbwrdmcao865h" path="res://common/health_bar.tscn" id="8_rgyib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
 radius = 20.0
@@ -44,3 +45,14 @@ flip_v = true
 [node name="LeftHand" type="Sprite2D" parent="WeaponPivot/WeaponAnchor/Weapon"]
 texture = ExtResource("6_boad6")
 offset = Vector2(0, 30)
+
+[node name="HealthBar" parent="." instance=ExtResource("8_rgyib")]
+unique_name_in_owner = true
+offset_left = -52.0
+offset_top = -137.0
+offset_right = -52.0
+offset_bottom = -137.0
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true

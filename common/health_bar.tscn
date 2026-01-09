@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbwrdmcao865h"]
+[gd_scene load_steps=5 format=3 uid="uid://dbwrdmcao865h"]
+
+[ext_resource type="Script" uid="uid://c64c6resoa6ag" path="res://common/health_bar.gd" id="1_7em8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3v0t"]
 bg_color = Color(0.49747366, 0.49747372, 0.49747354, 1)
@@ -11,14 +13,17 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7em8x"]
-bg_color = Color(0.18772054, 0.5432237, 0, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_bottom = 3
+bg_color = Color(0.1882353, 0.54509807, 0, 1)
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_5bycy"]
@@ -34,11 +39,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7em8x")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 29.0
 theme = SubResource("Theme_5bycy")
 step = 1.0
-value = 55.0
+value = 50.0
