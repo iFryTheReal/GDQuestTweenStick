@@ -2,6 +2,7 @@ class_name Mob
 extends CharacterBody2D
 
 @onready var _detection_area: Area2D = %DetectionArea
+@onready var _hit_box: Area2D = $HitBox
 
 ## Maximum speed allowed for the mob
 @export var max_speed: float = 600.0
@@ -11,6 +12,8 @@ extends CharacterBody2D
 @export var deceleration: float = 700.0
 ## Mob health level
 @export var health: int = 10 : set = set_health
+## Damage inflicted by the mob
+@export var damage: int = 1
 
 var _player: Player = null
 
@@ -25,6 +28,11 @@ func _ready() -> void:
 		if body is Player:
 			print_debug("Player exited at position : %.2v" % _player.position)
 			_player = null
+	)
+	
+	_hit_box.body_entered.connect(func (body: Node) -> void:
+		if body is Player:
+			body.take_damage(damage)
 	)
 
 func _physics_process(delta: float) -> void:
