@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbwrdmcao865h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3v0t"]
+bg_color = Color(0.49747366, 0.49747372, 0.49747354, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7em8x"]
+bg_color = Color(0.18772054, 0.5432237, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_5bycy"]
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/styles/background = SubResource("StyleBoxFlat_m3v0t")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_7em8x")
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 29.0
+theme = SubResource("Theme_5bycy")
+step = 1.0
+value = 55.0
