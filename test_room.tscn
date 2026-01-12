@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://6vk43bg5hv2m"]
+[gd_scene load_steps=6 format=3 uid="uid://6vk43bg5hv2m"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_oqbmf"]
 [ext_resource type="PackedScene" uid="uid://43ku0c7m8gqa" path="res://player/player.tscn" id="2_arrdh"]
 [ext_resource type="PackedScene" uid="uid://c0i2gypp2yyrp" path="res://mobs/mob.tscn" id="3_arrdh"]
+[ext_resource type="Resource" uid="uid://bujx6gkg43vbt" path="res://pickups/healing_item.tres" id="3_sqxie"]
+[ext_resource type="PackedScene" uid="uid://di05o5yap3qja" path="res://pickups/pickup.tscn" id="4_ju58f"]
 
 [node name="TestRoom" type="Node2D"]
 
 [node name="RoomA" parent="." instance=ExtResource("1_oqbmf")]
 
+[node name="Pickup" parent="." instance=ExtResource("4_ju58f")]
+position = Vector2(295, 283)
+item = ExtResource("3_sqxie")
+
 [node name="Player" parent="." instance=ExtResource("2_arrdh")]
-position = Vector2(424, 281)
+position = Vector2(490, 272)
 
 [node name="Mob" parent="." instance=ExtResource("3_arrdh")]
 position = Vector2(1219, 1070)
