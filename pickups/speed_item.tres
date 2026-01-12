@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpeedItem" load_steps=4 format=3 uid="uid://dk057pa144t3m"]
+
+[ext_resource type="Script" uid="uid://wsofxxak275t" path="res://pickups/speed_item.gd" id="1_42kfw"]
+[ext_resource type="Texture2D" uid="uid://biluxu10n4ttm" path="res://pickups/pickup_gem.png" id="1_pqg4x"]
+[ext_resource type="AudioStream" uid="uid://udconm0ioedx" path="res://common/sounds/powerup.wav" id="2_0yxn0"]
+
+[resource]
+script = ExtResource("1_42kfw")
+speed_amount = 600
+item_sprite = ExtResource("1_pqg4x")
+pickup_sound = ExtResource("2_0yxn0")
+metadata/_custom_type_script = "uid://wsofxxak275t"

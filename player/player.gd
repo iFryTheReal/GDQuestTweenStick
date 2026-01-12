@@ -8,8 +8,9 @@ extends CharacterBody2D
 @onready var _weapon_pivot: Node2D = %WeaponPivot
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
+@export var max_base_speed: float = 600.0
 ## Maximum speed allowed for the player character
-@export var max_speed: float = 600.0
+@export var max_speed: float = max_base_speed
 ## How much speed is added per seconds to the player speed when a movement key is pressed
 @export var acceleration: float = 1500.0
 ## How much speed is lost per seconds when the player release all movement keys
@@ -62,3 +63,9 @@ func toggle_player_control(is_active: bool) -> void:
 	set_physics_process(is_active)
 	_weapon.set_physics_process(is_active)
 	_weapon_pivot.set_process(is_active)
+
+func apply_speed_boost(speed_amount: float, duration: float) -> void:
+	max_speed = max_base_speed + speed_amount
+	get_tree().create_timer(duration).timeout.connect(func () -> void:
+		max_speed = max_base_speed
+	)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://di05o5yap3qja"]
 
 [ext_resource type="Script" uid="uid://1kjhiek8nmff" path="res://pickups/pickup.gd" id="1_ra232"]
-[ext_resource type="Texture2D" uid="uid://dmw7lbie35vag" path="res://pickups/pickup_ice.png" id="2_pbiw3"]
-[ext_resource type="AudioStream" uid="uid://c2woejhi871h1" path="res://pickups/pickup.wav" id="3_x6t5v"]
+[ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="2_pbiw3"]
+[ext_resource type="AudioStream" uid="uid://o3ra7o263286" path="res://pickups/pickup_health.wav" id="3_i5kuo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pbiw3"]
 radius = 29.0
@@ -20,4 +20,4 @@ shape = SubResource("CircleShape2D_pbiw3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_x6t5v")
+stream = ExtResource("3_i5kuo")
