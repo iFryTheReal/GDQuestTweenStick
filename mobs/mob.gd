@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var _detection_area: Area2D = %DetectionArea
 @onready var _hit_box: Area2D = $HitBox
 @onready var _health_bar: Control = %HealthBar
+@onready var _damage_timer: Timer = %DamageTimer
 
 ## Maximum speed allowed for the mob
 @export var max_speed: float = 600.0
@@ -37,8 +38,19 @@ func _ready() -> void:
 	)
 
 	_hit_box.body_entered.connect(func (body: Node) -> void:
+		if body is Player and _damage_timer.is_stopped():
+			_player.take_damage(damage)
+			_damage_timer.start()
+	)
+	
+	_hit_box.body_exited.connect(func (body: Node) -> void:
 		if body is Player:
-			body.take_damage(damage)
+			_damage_timer.stop()
+	)
+	
+	_damage_timer.timeout.connect(func () -> void:
+			_player.take_damage(damage)
+			_damage_timer.start()
 	)
 
 func _physics_process(delta: float) -> void:

@@ -12,7 +12,7 @@ height = 128.0
 radius = 800.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgbma"]
-radius = 19.0
+radius = 23.0
 height = 134.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7em8x"]
@@ -93,3 +93,6 @@ offset_bottom = 29.0
 theme = SubResource("Theme_qatwx")
 step = 1.0
 value = 50.0
+
+[node name="DamageTimer" type="Timer" parent="."]
+unique_name_in_owner = true
