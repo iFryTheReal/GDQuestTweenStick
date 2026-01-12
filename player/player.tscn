@@ -1,16 +1,46 @@
-[gd_scene load_steps=10 format=3 uid="uid://43ku0c7m8gqa"]
+[gd_scene load_steps=13 format=3 uid="uid://43ku0c7m8gqa"]
 
 [ext_resource type="Script" uid="uid://bml0yexgmjr54" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://5ays6kuo0xio" path="res://common/shadow.tscn" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://bw03btxpkxde4" path="res://player/godot_bottom.png" id="2_g1dw6"]
-[ext_resource type="Script" uid="uid://cl3e46fsb17dw" path="res://player/sprite_2d.gd" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://cl3e46fsb17dw" path="res://player/body_sprite.gd" id="4_yw30f"]
 [ext_resource type="Script" uid="uid://djmlb8fcjgvng" path="res://player/weapon_pivot.gd" id="5_boad6"]
 [ext_resource type="PackedScene" uid="uid://cmcxoh45b2757" path="res://weapons/weapon.tscn" id="5_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://dekkcmj408pvt" path="res://player/hand_fire.png" id="6_boad6"]
-[ext_resource type="PackedScene" uid="uid://dbwrdmcao865h" path="res://common/health_bar.tscn" id="8_rgyib"]
+[ext_resource type="Script" uid="uid://c64c6resoa6ag" path="res://common/health_bar.gd" id="8_rgyib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
 radius = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7em8x"]
+bg_color = Color(0.49747366, 0.49747372, 0.49747354, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bycy"]
+bg_color = Color(0.1882353, 0.54509807, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_qatwx"]
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/styles/background = SubResource("StyleBoxFlat_7em8x")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5bycy")
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -48,9 +78,25 @@ flip_v = true
 texture = ExtResource("6_boad6")
 offset = Vector2(0, 30)
 
-[node name="HealthBar" parent="." instance=ExtResource("8_rgyib")]
+[node name="HealthBar" type="Control" parent="."]
 unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -52.0
 offset_top = -137.0
 offset_right = -52.0
 offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_rgyib")
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 29.0
+theme = SubResource("Theme_qatwx")
+step = 1.0
+value = 50.0

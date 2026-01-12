@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c64c6resoa6ag" path="res://common/health_bar.gd" id="1_7em8x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3v0t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7em8x"]
 bg_color = Color(0.49747366, 0.49747372, 0.49747354, 1)
 border_width_left = 3
 border_width_top = 3
@@ -18,7 +18,7 @@ expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7em8x"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bycy"]
 bg_color = Color(0.1882353, 0.54509807, 0, 1)
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
@@ -26,11 +26,11 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Theme" id="Theme_5bycy"]
+[sub_resource type="Theme" id="Theme_qatwx"]
 ProgressBar/colors/font_color = Color(0, 0, 0, 1)
 ProgressBar/font_sizes/font_size = 16
-ProgressBar/styles/background = SubResource("StyleBoxFlat_m3v0t")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_7em8x")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_7em8x")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5bycy")
 
 [node name="HealthBar" type="Control"]
 layout_mode = 3
@@ -46,6 +46,6 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 29.0
-theme = SubResource("Theme_5bycy")
+theme = SubResource("Theme_qatwx")
 step = 1.0
 value = 50.0

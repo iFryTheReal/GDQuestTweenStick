@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0i2gypp2yyrp"]
+[gd_scene load_steps=10 format=3 uid="uid://c0i2gypp2yyrp"]
 
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_bteyy"]
 [ext_resource type="Script" uid="uid://cxodc6xq7oi85" path="res://mobs/mob.gd" id="1_fgbma"]
+[ext_resource type="Script" uid="uid://c64c6resoa6ag" path="res://common/health_bar.gd" id="3_p7hwu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bteyy"]
 radius = 16.0
@@ -13,6 +14,36 @@ radius = 800.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgbma"]
 radius = 19.0
 height = 134.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7em8x"]
+bg_color = Color(0.49747366, 0.49747372, 0.49747354, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bycy"]
+bg_color = Color(0.1882353, 0.54509807, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_qatwx"]
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/styles/background = SubResource("StyleBoxFlat_7em8x")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5bycy")
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 4
@@ -39,3 +70,26 @@ shape = SubResource("CircleShape2D_bteyy")
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_fgbma")
 debug_color = Color(0.99414665, 0, 0.23388389, 0.41960785)
+
+[node name="HealthBar" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -73.0
+offset_right = -50.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_p7hwu")
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 29.0
+theme = SubResource("Theme_qatwx")
+step = 1.0
+value = 50.0

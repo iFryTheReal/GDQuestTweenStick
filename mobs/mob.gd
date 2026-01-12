@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var _detection_area: Area2D = %DetectionArea
 @onready var _hit_box: Area2D = $HitBox
+@onready var _health_bar: Control = %HealthBar
 
 ## Maximum speed allowed for the mob
 @export var max_speed: float = 600.0
@@ -12,12 +13,17 @@ extends CharacterBody2D
 @export var deceleration: float = 700.0
 ## Mob health level
 @export var health: int = 10 : set = set_health
+## Mob maximum health
+@export_range(1, 100, 1, "or_greater") var max_health: int = 20
 ## Damage inflicted by the mob
 @export var damage: int = 1
 
 var _player: Player = null
 
 func _ready() -> void:
+	_health_bar.max_health = max_health
+	health = max_health
+	
 	_detection_area.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
 			_player = body
@@ -49,6 +55,7 @@ func _physics_process(delta: float) -> void:
 
 func set_health(new_health: int) -> void:
 	health = new_health
+	_health_bar.set_health(health)
 	if health <= 0:
 		die()
 
