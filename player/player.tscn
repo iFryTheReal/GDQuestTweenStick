@@ -18,7 +18,7 @@ script = ExtResource("1_g1dw6")
 
 [node name="Shadow" parent="." instance=ExtResource("1_rkbax")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BodySprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture = ExtResource("2_g1dw6")
 script = ExtResource("4_yw30f")
@@ -30,12 +30,14 @@ shape = SubResource("CircleShape2D_yw30f")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="WeaponPivot" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("5_boad6")
 
 [node name="WeaponAnchor" type="Marker2D" parent="WeaponPivot"]
 position = Vector2(70, 0)
 
 [node name="Weapon" parent="WeaponPivot/WeaponAnchor" instance=ExtResource("5_g6k8r")]
+unique_name_in_owner = true
 
 [node name="RightHand" type="Sprite2D" parent="WeaponPivot/WeaponAnchor/Weapon"]
 texture = ExtResource("6_boad6")
