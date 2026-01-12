@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var _hit_box: Area2D = $HitBox
 @onready var _health_bar: Control = %HealthBar
 @onready var _damage_timer: Timer = %DamageTimer
+@onready var _animation_player: AnimationPlayer = %AnimationPlayer
 
 ## Maximum speed allowed for the mob
 @export var max_speed: float = 600.0
@@ -79,4 +80,9 @@ func take_damage(damage: int) -> void:
 	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
 
 func die() -> void:
-	queue_free()
+	set_physics_process(false)
+	_animation_player.play("death_animation")
+	_animation_player.animation_finished.connect(func (animation_name: String) -> void:
+		if animation_name == "death_animation":
+			queue_free()
+	)

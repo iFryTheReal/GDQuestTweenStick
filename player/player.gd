@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var _health_bar: Control = %HealthBar
 @onready var _weapon: Node2D = %Weapon
 @onready var _weapon_pivot: Node2D = %WeaponPivot
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 ## Maximum speed allowed for the player character
 @export var max_speed: float = 600.0
@@ -51,7 +52,11 @@ func take_damage(damage: int) -> void:
 func die() -> void:
 	toggle_player_control(false)
 	_collision_shape_2d.set_deferred("disabled", true)
-	queue_free()
+	_animation_player.play("death_animation")
+	_animation_player.animation_finished.connect(func (animation_name: String) -> void:
+		if animation_name == "death_animation":
+			queue_free()
+	)
 
 func toggle_player_control(is_active: bool) -> void:
 	set_physics_process(is_active)

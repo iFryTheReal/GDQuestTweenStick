@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0i2gypp2yyrp"]
+[gd_scene load_steps=13 format=3 uid="uid://c0i2gypp2yyrp"]
 
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_bteyy"]
 [ext_resource type="Script" uid="uid://cxodc6xq7oi85" path="res://mobs/mob.gd" id="1_fgbma"]
@@ -44,6 +44,67 @@ ProgressBar/colors/font_color = Color(0, 0, 0, 1)
 ProgressBar/font_sizes/font_size = 16
 ProgressBar/styles/background = SubResource("StyleBoxFlat_7em8x")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_5bycy")
+
+[sub_resource type="Animation" id="Animation_p7hwu"]
+resource_name = "death_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.6981317, 1.3962634, 4.537856, 7.330383]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-11.999998, -83), Vector2(4.000001, -109), Vector2(31, -89), Vector2(55, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_4p423"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxx3d"]
+_data = {
+&"RESET": SubResource("Animation_4p423"),
+&"death_animation": SubResource("Animation_p7hwu")
+}
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 4
@@ -96,3 +157,9 @@ value = 50.0
 
 [node name="DamageTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_cxx3d")
+}
