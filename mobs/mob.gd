@@ -29,7 +29,7 @@ func _ready() -> void:
 			print_debug("Player exited at position : %.2v" % _player.position)
 			_player = null
 	)
-	
+
 	_hit_box.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
 			body.take_damage(damage)
