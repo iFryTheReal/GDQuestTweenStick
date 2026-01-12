@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://6vk43bg5hv2m"]
+[gd_scene load_steps=9 format=3 uid="uid://6vk43bg5hv2m"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_oqbmf"]
 [ext_resource type="PackedScene" uid="uid://43ku0c7m8gqa" path="res://player/player.tscn" id="2_arrdh"]
@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://bujx6gkg43vbt" path="res://pickups/healing_item.tres" id="3_sqxie"]
 [ext_resource type="Resource" uid="uid://dk057pa144t3m" path="res://pickups/speed_item.tres" id="4_bd7ek"]
 [ext_resource type="PackedScene" uid="uid://di05o5yap3qja" path="res://pickups/pickup.tscn" id="4_ju58f"]
+[ext_resource type="PackedScene" uid="uid://cnimbin4l3i2f" path="res://pickups/chest/chest.tscn" id="7_3vbl4"]
+[ext_resource type="Script" uid="uid://cgh7p1ci7r8lw" path="res://pickups/item.gd" id="8_6r6vx"]
 
 [node name="TestRoom" type="Node2D"]
 
@@ -18,6 +20,10 @@ item = ExtResource("3_sqxie")
 [node name="Pickup2" parent="." instance=ExtResource("4_ju58f")]
 position = Vector2(763, 108)
 item = ExtResource("4_bd7ek")
+
+[node name="Chest" parent="." instance=ExtResource("7_3vbl4")]
+position = Vector2(359, 459)
+possible_items = Array[ExtResource("8_6r6vx")]([ExtResource("3_sqxie"), ExtResource("4_bd7ek")])
 
 [node name="Player" parent="." instance=ExtResource("2_arrdh")]
 position = Vector2(490, 272)
