@@ -29,7 +29,7 @@ script = ExtResource("1_jkxa6")
 [node name="BackgroundBlueSky" parent="." instance=ExtResource("1_n46q3")]
 
 [node name="Player" parent="." instance=ExtResource("2_l53as")]
-position = Vector2(248, 320)
+position = Vector2(1446, -1981)
 collision_mask = 71
 
 [node name="RoomA" parent="." instance=ExtResource("2_btoec")]
@@ -46,10 +46,6 @@ position = Vector2(3264, 1344)
 
 [node name="Mob7" parent="RoomA" instance=ExtResource("4_3sk1a")]
 position = Vector2(3712, 745)
-
-[node name="Chest" parent="RoomA" instance=ExtResource("6_betor")]
-position = Vector2(405, 192)
-possible_items = Array[ExtResource("7_vjtdm")]([ExtResource("8_bgw3c"), ExtResource("9_lrvbd")])
 
 [node name="RoomB" parent="." instance=ExtResource("3_gwceb")]
 position = Vector2(2688, 768)
@@ -69,6 +65,9 @@ position = Vector2(704, 576)
 
 [node name="Mob7" parent="RoomC" instance=ExtResource("4_3sk1a")]
 position = Vector2(901, 576)
+
+[node name="Teleporter" parent="RoomC" instance=ExtResource("21_w75he")]
+position = Vector2(563, 64)
 
 [node name="RoomD" parent="." instance=ExtResource("5_3sk1a")]
 position = Vector2(-512, 2372)
@@ -110,9 +109,8 @@ texture = ExtResource("17_jkxa6")
 position = Vector2(188, 2451)
 texture = ExtResource("18_w75he")
 
-[node name="EndMenu" parent="." instance=ExtResource("19_7nvrk")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndMenu" parent="CanvasLayer" instance=ExtResource("19_7nvrk")]
 visible = false
 top_level = true
-
-[node name="Teleporter" parent="." instance=ExtResource("21_w75he")]
-position = Vector2(430, 557)
