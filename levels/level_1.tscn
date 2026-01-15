@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=4 uid="uid://d4b3cog0cyker"]
+[gd_scene load_steps=22 format=4 uid="uid://d4b3cog0cyker"]
 
+[ext_resource type="Script" uid="uid://biklht0rdca1e" path="res://levels/level_1.gd" id="1_jkxa6"]
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://43ku0c7m8gqa" path="res://player/player.tscn" id="2_l53as"]
@@ -18,9 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://dpvylwqlmap1n" path="res://levels/props/gems_blue_3.png" id="16_7nvrk"]
 [ext_resource type="Texture2D" uid="uid://dklu54qejca7p" path="res://levels/props/pot_clay_stacked.png" id="17_jkxa6"]
 [ext_resource type="Texture2D" uid="uid://cncfew4k5q8jk" path="res://levels/props/statue_ruin.png" id="18_w75he"]
+[ext_resource type="PackedScene" uid="uid://cojqqhb3k67q1" path="res://ui/end_menu.tscn" id="19_7nvrk"]
+[ext_resource type="PackedScene" uid="uid://bqwac15wys7j3" path="res://teleporter/teleporter.tscn" id="21_w75he"]
 
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_jkxa6")
 
 [node name="BackgroundBlueSky" parent="." instance=ExtResource("1_n46q3")]
 
@@ -105,3 +109,10 @@ texture = ExtResource("17_jkxa6")
 [node name="StatueRuin" type="Sprite2D" parent="."]
 position = Vector2(188, 2451)
 texture = ExtResource("18_w75he")
+
+[node name="EndMenu" parent="." instance=ExtResource("19_7nvrk")]
+visible = false
+top_level = true
+
+[node name="Teleporter" parent="." instance=ExtResource("21_w75he")]
+position = Vector2(430, 557)
