@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d4b3cog0cyker"]
+[gd_scene load_steps=19 format=4 uid="uid://d4b3cog0cyker"]
 
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="2_btoec"]
@@ -14,6 +14,10 @@
 [ext_resource type="Resource" uid="uid://bujx6gkg43vbt" path="res://pickups/healing_item.tres" id="8_bgw3c"]
 [ext_resource type="Resource" uid="uid://dk057pa144t3m" path="res://pickups/speed_item.tres" id="9_lrvbd"]
 [ext_resource type="PackedScene" uid="uid://di05o5yap3qja" path="res://pickups/pickup.tscn" id="12_oqlok"]
+[ext_resource type="Texture2D" uid="uid://bdp7ywxga0yem" path="res://levels/props/books_1.png" id="15_oqlok"]
+[ext_resource type="Texture2D" uid="uid://dpvylwqlmap1n" path="res://levels/props/gems_blue_3.png" id="16_7nvrk"]
+[ext_resource type="Texture2D" uid="uid://dklu54qejca7p" path="res://levels/props/pot_clay_stacked.png" id="17_jkxa6"]
+[ext_resource type="Texture2D" uid="uid://cncfew4k5q8jk" path="res://levels/props/statue_ruin.png" id="18_w75he"]
 
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
@@ -85,3 +89,19 @@ tile_map_data = PackedByteArray("AAACABIAAAAEAAEAAAACABEAAAADAAEAAAACABAAAAADAAE
 [node name="InvisibleWalls" parent="." instance=ExtResource("8_08mmt")]
 visible = false
 tile_map_data = PackedByteArray("AAABABEAAAAAAAAAAAABABAAAAAAAAAAAAABAA8AAAAAAAAAAAACAA4AAAAAAAAAAAADAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAFAAwAAAAAAAAAAAAFAA0AAAAAAAAAAAAHAAwAAAAAAAAAAAAHAA0AAAAAAAAAAAAHAA4AAAAAAAAAAAADABAAAAAAAAAAAAADABEAAAAAAAAAAAAEABAAAAAAAAAAAAAFABAAAAAAAAAAAAAGABAAAAAAAAAAAAAHABAAAAAAAAAAAAAIABAAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAAAAAAAAALABAAAAAAAAAAAAAMABAAAAAAAAAAAAANABAAAAAAAAAAAAAOABAAAAAAAAAAAAAPAA8AAAAAAAAAAAAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAAPAAsAAAAAAAAAAAAIAA4AAAAAAAAAAAAJAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAANAA4AAAAAAAAAAAANAA0AAAAAAAAAAAANAAwAAAAAAAAAAAANAAsAAAAAAAAAAAANAAoAAAAAAAAAAAANAAkAAAAAAAAAAAANAAgAAAAAAAAAAAANAAcAAAAAAAAAAAANAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAUAAAAAAAAAAAAOAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAbAAQAAAAAAAAAAAAbAAMAAAAAAAAAAAAbAAIAAAAAAAAAAAAbAAEAAAAAAAAAAAAaAAAAAAAAAAAAAAAaAP//AAAAAAAAAAAZAP//AAAAAAAAAAAYAP7/AAAAAAAAAAAXAP7/AAAAAAAAAAAWAP7/AAAAAAAAAAAVAP7/AAAAAAAAAAAUAP7/AAAAAAAAAAATAP7/AAAAAAAAAAASAP7/AAAAAAAAAAARAP7/AAAAAAAAAAAQAP3/AAAAAAAAAAAQAPz/AAAAAAAAAAAQAPv/AAAAAAAAAAAQAPr/AAAAAAAAAAASAPr/AAAAAAAAAAASAPv/AAAAAAAAAAASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAAUAPz/AAAAAAAAAAAVAPz/AAAAAAAAAAAWAPz/AAAAAAAAAAAXAPz/AAAAAAAAAAAYAPz/AAAAAAAAAAAZAPz/AAAAAAAAAAAaAP3/AAAAAAAAAAAbAP3/AAAAAAAAAAAcAP7/AAAAAAAAAAAcAP//AAAAAAAAAAAdAAAAAAAAAAAAAAAdAAEAAAAAAAAAAAAdAAIAAAAAAAAAAAAdAAMAAAAAAAAAAAAdAAQAAAAAAAAAAAA=")
+
+[node name="Books1" type="Sprite2D" parent="."]
+position = Vector2(1088, 256)
+texture = ExtResource("15_oqlok")
+
+[node name="GemsBlue3" type="Sprite2D" parent="."]
+position = Vector2(320, 1088)
+texture = ExtResource("16_7nvrk")
+
+[node name="PotClayStacked" type="Sprite2D" parent="."]
+position = Vector2(3595, 1322)
+texture = ExtResource("17_jkxa6")
+
+[node name="StatueRuin" type="Sprite2D" parent="."]
+position = Vector2(188, 2451)
+texture = ExtResource("18_w75he")
