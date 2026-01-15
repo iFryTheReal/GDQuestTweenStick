@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d4b3cog0cyker"]
+[gd_scene load_steps=15 format=4 uid="uid://d4b3cog0cyker"]
 
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="2_btoec"]
@@ -7,8 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://c0i2gypp2yyrp" path="res://mobs/mob.tscn" id="4_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://cq0mmphkbrvmm" path="res://levels/rooms/room_c.tscn" id="4_l53as"]
 [ext_resource type="PackedScene" uid="uid://diw0kp1e3livt" path="res://levels/rooms/room_d.tscn" id="5_3sk1a"]
+[ext_resource type="PackedScene" uid="uid://cnimbin4l3i2f" path="res://pickups/chest/chest.tscn" id="6_betor"]
 [ext_resource type="PackedScene" uid="uid://c3fl3stluv0gn" path="res://levels/bridges.tscn" id="7_3sk1a"]
+[ext_resource type="Script" uid="uid://cgh7p1ci7r8lw" path="res://pickups/item.gd" id="7_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://dlxjrgals3rg2" path="res://levels/invisible_walls.tscn" id="8_08mmt"]
+[ext_resource type="Resource" uid="uid://bujx6gkg43vbt" path="res://pickups/healing_item.tres" id="8_bgw3c"]
+[ext_resource type="Resource" uid="uid://dk057pa144t3m" path="res://pickups/speed_item.tres" id="9_lrvbd"]
+[ext_resource type="PackedScene" uid="uid://di05o5yap3qja" path="res://pickups/pickup.tscn" id="12_oqlok"]
 
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
@@ -16,7 +21,7 @@ y_sort_enabled = true
 [node name="BackgroundBlueSky" parent="." instance=ExtResource("1_n46q3")]
 
 [node name="Player" parent="." instance=ExtResource("2_l53as")]
-position = Vector2(356, 399)
+position = Vector2(248, 320)
 collision_mask = 71
 
 [node name="RoomA" parent="." instance=ExtResource("2_btoec")]
@@ -28,14 +33,51 @@ position = Vector2(1856, 576)
 [node name="Mob2" parent="RoomA" instance=ExtResource("4_3sk1a")]
 position = Vector2(824, 1182)
 
+[node name="Mob6" parent="RoomA" instance=ExtResource("4_3sk1a")]
+position = Vector2(3264, 1344)
+
+[node name="Mob7" parent="RoomA" instance=ExtResource("4_3sk1a")]
+position = Vector2(3712, 745)
+
+[node name="Chest" parent="RoomA" instance=ExtResource("6_betor")]
+position = Vector2(405, 192)
+possible_items = Array[ExtResource("7_vjtdm")]([ExtResource("8_bgw3c"), ExtResource("9_lrvbd")])
+
 [node name="RoomB" parent="." instance=ExtResource("3_gwceb")]
 position = Vector2(2688, 768)
+
+[node name="Chest2" parent="RoomB" instance=ExtResource("6_betor")]
+position = Vector2(768, 384)
+possible_items = Array[ExtResource("7_vjtdm")]([ExtResource("8_bgw3c"), ExtResource("9_lrvbd")])
 
 [node name="RoomC" parent="." instance=ExtResource("4_l53as")]
 position = Vector2(1024, -2112)
 
+[node name="Mob5" parent="RoomC" instance=ExtResource("4_3sk1a")]
+position = Vector2(512, 576)
+
+[node name="Mob6" parent="RoomC" instance=ExtResource("4_3sk1a")]
+position = Vector2(704, 576)
+
+[node name="Mob7" parent="RoomC" instance=ExtResource("4_3sk1a")]
+position = Vector2(901, 576)
+
 [node name="RoomD" parent="." instance=ExtResource("5_3sk1a")]
 position = Vector2(-512, 2372)
+
+[node name="Pickup" parent="RoomD" instance=ExtResource("12_oqlok")]
+position = Vector2(1805, -1156)
+item = ExtResource("8_bgw3c")
+
+[node name="Chest" parent="RoomD" instance=ExtResource("6_betor")]
+position = Vector2(896, 1340)
+possible_items = Array[ExtResource("7_vjtdm")]([ExtResource("9_lrvbd"), ExtResource("8_bgw3c")])
+
+[node name="Mob3" parent="RoomD" instance=ExtResource("4_3sk1a")]
+position = Vector2(828, 636)
+
+[node name="Mob4" parent="RoomD" instance=ExtResource("4_3sk1a")]
+position = Vector2(512, 1040)
 
 [node name="Bridges" parent="." instance=ExtResource("7_3sk1a")]
 tile_map_data = PackedByteArray("AAACABIAAAAEAAEAAAACABEAAAADAAEAAAACABAAAAADAAEAAAACAA8AAAABAAAAAAADAA8AAAAAAAEAAAAEAA8AAAAAAAEAAAAFAA8AAAAAAAEAAAAGAA8AAAADAAAAAAAHAA8AAAAAAAEAAAAIAA8AAAAAAAEAAAAJAA8AAAAAAAEAAAAKAA8AAAAAAAEAAAALAA8AAAAAAAEAAAAMAA8AAAAAAAEAAAAGAA4AAAADAAEAAAAGAA0AAAADAAEAAAAGAAwAAAADAAEAAAAGAAsAAAAFAAEAAAANAA8AAAAAAAEAAAAOAAwAAAADAAEAAAAOAAsAAAADAAEAAAAUAAoAAAACAAEAAAATAAoAAAAAAAEAAAASAAoAAAAAAAEAAAARAAoAAAAAAAEAAAAQAAoAAAAAAAEAAAAPAAoAAAACAAEAAAAOAAoAAAADAAEAAAALAAUAAAABAAEAAAAMAAUAAAAAAAEAAAANAAUAAAAAAAEAAAAOAAUAAAAAAAAAAAAcAAYAAAAEAAEAAAAcAAUAAAADAAEAAAAcAAQAAAADAAEAAAAcAAMAAAADAAEAAAAcAAIAAAADAAEAAAAcAAEAAAADAAEAAAAcAAAAAAAAAAAAAAAbAAAAAAACAAAAAAAbAP//AAADAAEAAAAbAP7/AAAAAAAAAAAaAP7/AAAAAAEAAAAZAP7/AAACAAAAAAAZAP3/AAAAAAAAAAAYAP3/AAAAAAEAAAAXAP3/AAAAAAEAAAAWAP3/AAAAAAEAAAAVAP3/AAAAAAEAAAAUAP3/AAAAAAEAAAATAP3/AAAAAAEAAAASAP3/AAAAAAEAAAARAP3/AAACAAAAAAARAPz/AAADAAEAAAARAPv/AAADAAEAAAARAPr/AAAFAAEAAAAOAA8AAAADAAAAAAAOAA4AAAADAAEAAAAOAA0AAAADAAEAAAAOAAYAAAADAAEAAAAOAAcAAAADAAEAAAAOAAgAAAADAAEAAAAOAAkAAAADAAEAAAA=")
