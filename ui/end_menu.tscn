@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cojqqhb3k67q1"]
+[gd_scene load_steps=12 format=3 uid="uid://cojqqhb3k67q1"]
 
 [ext_resource type="FontFile" uid="uid://djfuvgrnv54kr" path="res://common/title_font.tres" id="1_4ksec"]
+[ext_resource type="Shader" uid="uid://bsf1a25jxwlv1" path="res://common/shaders/blur_and_tint.gdshader" id="1_sewyj"]
 [ext_resource type="Script" uid="uid://bilc28thtpgl4" path="res://ui/end_menu.gd" id="2_bje0f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bje0f"]
@@ -39,6 +40,13 @@ Button/styles/pressed = SubResource("StyleBoxFlat_h1da4")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_mqpo8")
 VBoxContainer/constants/separation = 15
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sewyj"]
+shader = ExtResource("1_sewyj")
+shader_parameter/blur_amount = 4.50000021375
+shader_parameter/tint = Color(0.2594356, 0.2799391, 0.3063575, 1)
+shader_parameter/tint_strength = 0.2000000095
+shader_parameter/saturation = 1.0
+
 [node name="EndMenu" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +55,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mv1gt")
 script = ExtResource("2_bje0f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sewyj")
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 2

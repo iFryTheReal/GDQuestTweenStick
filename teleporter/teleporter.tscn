@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqwac15wys7j3"]
+[gd_scene load_steps=6 format=3 uid="uid://bqwac15wys7j3"]
 
 [ext_resource type="Script" uid="uid://chefvinny07jy" path="res://teleporter.gd" id="1_ky83x"]
 [ext_resource type="Texture2D" uid="uid://cwurq7yvv5xdu" path="res://teleporter/teleporter_base.png" id="2_111yd"]
 [ext_resource type="Texture2D" uid="uid://cb5e2w7i8756i" path="res://teleporter/teleporter_beam_green.png" id="3_jn234"]
+[ext_resource type="Texture2D" uid="uid://bvq8qshecx2by" path="res://teleporter/teleporter_particle_green.png" id="4_111yd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tn6t4"]
 radius = 45.0
@@ -22,3 +23,8 @@ texture = ExtResource("3_jn234")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(80, 144)
 shape = SubResource("CircleShape2D_tn6t4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(80, 144)
+emitting = false
+texture = ExtResource("4_111yd")

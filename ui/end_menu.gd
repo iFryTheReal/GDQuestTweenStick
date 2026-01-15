@@ -11,7 +11,7 @@ func make_visible() -> void:
 	get_tree().paused = true
 	set_elapsed_time()
 	visible = true
-
+	
 func set_elapsed_time() -> void:
 	var elapsed_time_ms: float = 0.0
 	elapsed_time_ms = Time.get_ticks_msec() - start_time
