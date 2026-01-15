@@ -4,7 +4,7 @@ extends Control
 
 @export var max_health: int = 100 : set = set_max_health
 
-@onready var fill_style: StyleBoxFlat = _progress_bar.get_theme_stylebox("fill", "ProgressBar")
+@onready var fill_style: StyleBoxFlat = _progress_bar.get_theme_stylebox("fill", "ProgressBar").duplicate()
 
 var health_gradient: Gradient = Gradient.new()
 

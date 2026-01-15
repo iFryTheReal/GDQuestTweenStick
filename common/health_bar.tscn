@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbwrdmcao865h"]
+[gd_scene load_steps=6 format=3 uid="uid://dbwrdmcao865h"]
 
 [ext_resource type="Script" uid="uid://c64c6resoa6ag" path="res://common/health_bar.gd" id="1_7em8x"]
 
@@ -32,6 +32,9 @@ ProgressBar/font_sizes/font_size = 16
 ProgressBar/styles/background = SubResource("StyleBoxFlat_7em8x")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_5bycy")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qatwx"]
+resource_local_to_scene = true
+
 [node name="HealthBar" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -47,5 +50,6 @@ layout_mode = 0
 offset_right = 100.0
 offset_bottom = 29.0
 theme = SubResource("Theme_qatwx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qatwx")
 step = 1.0
 value = 50.0
