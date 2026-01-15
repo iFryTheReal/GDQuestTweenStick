@@ -13,6 +13,9 @@
 
 [node name="RoomA" parent="." instance=ExtResource("1_oqbmf")]
 
+[node name="Player" parent="." instance=ExtResource("2_arrdh")]
+position = Vector2(490, 272)
+
 [node name="Pickup" parent="." instance=ExtResource("4_ju58f")]
 position = Vector2(295, 283)
 item = ExtResource("3_sqxie")
@@ -24,12 +27,7 @@ item = ExtResource("4_bd7ek")
 [node name="Chest" parent="." instance=ExtResource("7_3vbl4")]
 position = Vector2(359, 459)
 possible_items = Array[ExtResource("8_6r6vx")]([ExtResource("3_sqxie"), ExtResource("4_bd7ek")])
-min_spawn_distance = null
-max_spawn_distance = null
-
-[node name="Player" parent="." instance=ExtResource("2_arrdh")]
-position = Vector2(490, 272)
 
 [node name="Mob" parent="." instance=ExtResource("3_arrdh")]
-position = Vector2(1219, 1070)
+position = Vector2(1302, 1038)
 max_speed = 200.0
