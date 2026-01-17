@@ -48,6 +48,7 @@ shader_parameter/tint_strength = 0.2000000095
 shader_parameter/saturation = 1.0
 
 [node name="EndMenu" type="CenterContainer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -82,10 +83,12 @@ theme_override_font_sizes/font_size = 40
 text = "Time : s"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+[node name="ReplayButton" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Play again"
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"

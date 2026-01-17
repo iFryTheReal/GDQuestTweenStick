@@ -1,12 +1,20 @@
 extends CenterContainer
 
 @onready var _time: Label = %Time
+@onready var _replay_button: Button = %ReplayButton
+@onready var _quit_button: Button = %QuitButton
 
 var start_time: float = 0.0
 
 func _ready() -> void:
 	start_time = Time.get_ticks_msec()
-
+	
+	_replay_button.pressed.connect(func () -> void:
+		get_tree().paused = false
+		get_tree().reload_current_scene()
+	)
+	_quit_button.pressed.connect(get_tree().quit)
+	
 func make_visible() -> void:
 	get_tree().paused = true
 	set_elapsed_time()
