@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0i2gypp2yyrp"]
+[gd_scene load_steps=15 format=3 uid="uid://c0i2gypp2yyrp"]
 
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_bteyy"]
 [ext_resource type="Script" uid="uid://cxodc6xq7oi85" path="res://mobs/mob.gd" id="1_fgbma"]
 [ext_resource type="Script" uid="uid://c64c6resoa6ag" path="res://common/health_bar.gd" id="3_p7hwu"]
+[ext_resource type="AudioStream" uid="uid://dfc5tcrthtntk" path="res://mobs/hurt.wav" id="4_cxx3d"]
+[ext_resource type="AudioStream" uid="uid://cte8ddxd7o4de" path="res://mobs/kill.wav" id="5_il41e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bteyy"]
 radius = 16.0
@@ -163,3 +165,11 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_cxx3d")
 }
+
+[node name="AudioStreamHurt" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_cxx3d")
+
+[node name="AudioStreamKill" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_il41e")

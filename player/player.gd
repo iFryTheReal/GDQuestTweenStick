@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var _weapon: Node2D = %Weapon
 @onready var _weapon_pivot: Node2D = %WeaponPivot
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _audio_stream_hit: AudioStreamPlayer = %AudioStreamHit
+@onready var _audio_stream_death: AudioStreamPlayer = %AudioStreamDeath
+
 
 @export var max_base_speed: float = 600.0
 ## Maximum speed allowed for the player character
@@ -49,15 +52,16 @@ func take_damage(damage: int) -> void:
 	_body_sprite.modulate = Color.RED
 	var tween: Tween = create_tween()
 	tween.tween_property(_body_sprite, "modulate", Color.WHITE, 0.1)
+	
+	_audio_stream_hit.play()
 
 func die() -> void:
 	toggle_player_control(false)
 	_collision_shape_2d.set_deferred("disabled", true)
 	_animation_player.play("death_animation")
-	_animation_player.animation_finished.connect(func (animation_name: String) -> void:
-		if animation_name == "death_animation":
-			queue_free()
-	)
+	
+	_audio_stream_death.play()
+	_audio_stream_death.finished.connect(get_tree().reload_current_scene)
 
 func toggle_player_control(is_active: bool) -> void:
 	set_physics_process(is_active)

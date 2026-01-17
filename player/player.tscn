@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://43ku0c7m8gqa"]
+[gd_scene load_steps=20 format=3 uid="uid://43ku0c7m8gqa"]
 
 [ext_resource type="Script" uid="uid://bml0yexgmjr54" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://5ays6kuo0xio" path="res://common/shadow.tscn" id="1_rkbax"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cmcxoh45b2757" path="res://weapons/weapon.tscn" id="5_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://dekkcmj408pvt" path="res://player/hand_fire.png" id="6_boad6"]
 [ext_resource type="Script" uid="uid://c64c6resoa6ag" path="res://common/health_bar.gd" id="8_rgyib"]
+[ext_resource type="AudioStream" uid="uid://ursqvcxb3uov" path="res://player/death_01.wav" id="9_2ieo8"]
+[ext_resource type="AudioStream" uid="uid://b3w6lv1kglxf6" path="res://player/death_02.wav" id="10_ebec5"]
+[ext_resource type="AudioStream" uid="uid://c56hqbbb5ktp1" path="res://player/death_03.wav" id="11_yllr7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
 radius = 20.0
@@ -151,6 +154,12 @@ _data = {
 &"death_animation": SubResource("Animation_rgyib")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e7oew"]
+streams_count = 3
+stream_0/stream = ExtResource("9_2ieo8")
+stream_1/stream = ExtResource("10_ebec5")
+stream_2/stream = ExtResource("11_yllr7")
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_g1dw6")
@@ -216,3 +225,11 @@ value = 50.0
 libraries = {
 &"": SubResource("AnimationLibrary_8t03j")
 }
+
+[node name="AudioStreamHit" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_e7oew")
+
+[node name="AudioStreamDeath" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_e7oew")

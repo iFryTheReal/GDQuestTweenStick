@@ -7,6 +7,8 @@ extends Area2D
 ## Damage done by the bullet
 @export var damage: int = 2
 
+@onready var _audio_stream_player_2d: AudioStreamPlayer2D = %AudioStreamPlayer2D
+
 var distance_traveled: float = 0.0
 
 func _ready() -> void:
@@ -28,4 +30,8 @@ func _physics_process(delta: float) -> void:
 		_destroy()
 
 func _destroy() -> void:
-	queue_free()
+	_audio_stream_player_2d.play()
+	set_physics_process(false)
+	set_deferred("monitoring", false)
+	visible = false
+	_audio_stream_player_2d.finished.connect(queue_free)

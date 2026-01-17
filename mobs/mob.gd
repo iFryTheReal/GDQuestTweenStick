@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var _health_bar: Control = %HealthBar
 @onready var _damage_timer: Timer = %DamageTimer
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
+@onready var _audio_stream_hurt: AudioStreamPlayer2D = %AudioStreamHurt
+@onready var _audio_stream_kill: AudioStreamPlayer2D = %AudioStreamKill
+
 
 ## Maximum speed allowed for the mob
 @export var max_speed: float = 600.0
@@ -72,12 +75,14 @@ func set_health(new_health: int) -> void:
 	if health <= 0:
 		die()
 
-func take_damage(damage: int) -> void:
-	health -= damage
+func take_damage(amount: int) -> void:
+	health -= amount
 	
 	modulate = Color.RED
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
+	
+	_audio_stream_hurt.play()
 
 func die() -> void:
 	set_physics_process(false)
@@ -86,3 +91,5 @@ func die() -> void:
 		if animation_name == "death_animation":
 			queue_free()
 	)
+	
+	_audio_stream_kill.play()

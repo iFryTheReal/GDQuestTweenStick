@@ -9,6 +9,8 @@ extends Node2D
 ## Maximum bullet spread, random angle a which the bullet spawn
 @export_range(0.0, 360.0, 1.0, "radians_as_degrees") var max_bullet_spread: float = 0.0
 
+@onready var _audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
 		shoot()
@@ -23,3 +25,5 @@ func shoot() -> void:
 	bullet.speed = bullet_speed
 	bullet.max_range = bullet_range
 	bullet.rotation += randf_range(-max_bullet_spread / 2.0, max_bullet_spread /2.0)
+	
+	_audio_stream_player.play()

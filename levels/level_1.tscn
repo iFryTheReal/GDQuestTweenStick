@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d4b3cog0cyker"]
+[gd_scene load_steps=23 format=4 uid="uid://d4b3cog0cyker"]
 
 [ext_resource type="Script" uid="uid://biklht0rdca1e" path="res://levels/level_1.gd" id="1_jkxa6"]
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_n46q3"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cncfew4k5q8jk" path="res://levels/props/statue_ruin.png" id="18_w75he"]
 [ext_resource type="PackedScene" uid="uid://cojqqhb3k67q1" path="res://ui/end_menu.tscn" id="19_7nvrk"]
 [ext_resource type="PackedScene" uid="uid://bqwac15wys7j3" path="res://teleporter/teleporter.tscn" id="21_w75he"]
+[ext_resource type="AudioStream" uid="uid://cgkhr5s5txcxx" path="res://common/music/EZDNB2 (CC-BY Of Far Different Nature).ogg" id="22_udfhf"]
 
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
@@ -114,3 +115,8 @@ texture = ExtResource("18_w75he")
 [node name="EndMenu" parent="CanvasLayer" instance=ExtResource("19_7nvrk")]
 visible = false
 top_level = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_udfhf")
+volume_db = -30.0
+autoplay = true
