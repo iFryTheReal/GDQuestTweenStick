@@ -35,9 +35,11 @@ hue_variation_max = 0.99999994
 
 [node name="ConfettisParticles" type="GPUParticles2D"]
 material = SubResource("ShaderMaterial_1awbp")
+emitting = false
 amount = 48
 texture = ExtResource("1_1awbp")
 lifetime = 1.5
+one_shot = true
 preprocess = 0.1
 explosiveness = 0.9
 process_material = SubResource("ParticleProcessMaterial_8go7r")
